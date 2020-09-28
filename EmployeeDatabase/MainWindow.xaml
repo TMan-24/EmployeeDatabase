@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeDatabase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Database Testing Center" Height="450" Width="800">
     <Grid Background="#FFDD1818">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -15,8 +15,10 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <TextBox Text="{Binding Text}" Name="Info_field" HorizontalAlignment="Left" Height="302" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Margin="68,59,0,0" Background="White"/>
-        <Button Content="See Assets" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="57,21,0,0" Click="Button_Click" Height="19"/>
+        <TextBox Name="Info_field1" HorizontalAlignment="Left" Height="266" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Margin="17,64,0,0" Background="White" RenderTransformOrigin="0.489,0.489"/>
+        <Button Content="See Assets" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="120,21,0,0" Click="Button_Click" Height="19"/>
+        <Button Content="See Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="531,17,0,0" Click="Button_Click_1"/>
+        <TextBox Name="Info_field2" HorizontalAlignment="Left" Height="268" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Margin="433,64,0,0"/>
 
     </Grid>
 </Window>

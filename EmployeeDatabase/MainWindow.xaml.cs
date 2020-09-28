@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Arthur: Tony Anderson
+ * Date: 9/28/2020
+ * Filename: MainWindow.xaml.cs
+ * Description: This program connects to a database and prints
+ *              out the contents of the database
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
@@ -30,6 +38,7 @@ namespace EmployeeDatabase
             cn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EmployeeDatabase.accdb");
         }
 
+        //Asset Button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string query = "select* from Assets";
@@ -38,16 +47,45 @@ namespace EmployeeDatabase
             
             OleDbDataReader read = cmd.ExecuteReader();
             string data = "";
-            
+            data += "Assets\n";
+            data += "EmployeeID       AssetID          Description";
+            data += "\n";
+
             while (read.Read())
             {
-                data += read[0].ToString() + "\n";
-                Info_field.Text = data;
-
-
+                
+                data += read[0].ToString() + "                  ";
+                data += read[1].ToString() + "            ";
+                data += read[2].ToString() + "\n";
+                data += "\n";
             }
+            Info_field1.Text = data;
             cn.Close();
         }
 
+        //Employee button
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string query = "select* from Employees";
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            cn.Open();
+
+            OleDbDataReader read = cmd.ExecuteReader();
+            string data = "";
+            data += "Employees\n";
+            data += "EmployeeID    Lastname    Firstname";
+            data += "\n";
+
+            while (read.Read())
+            {
+
+                data += read[0].ToString() + "               ";
+                data += read[1].ToString() + ",          ";
+                data += read[2].ToString() + "\n";
+                data += "\n";
+            }
+            Info_field2.Text = data;
+            cn.Close();
+        }
     }
 }
